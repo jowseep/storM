@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\StorM.API.props" />
+</Project>
