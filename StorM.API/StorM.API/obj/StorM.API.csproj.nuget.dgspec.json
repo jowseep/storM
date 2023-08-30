@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Joseph.Callao\\OneDrive - AMCS Group\\Desktop\\random\\bootcamp\\storM\\StorM.API\\StorM.API\\StorM.API.csproj": {}
+    "C:\\Users\\Joseph.Callao\\OneDrive - AMCS Group\\Desktop\\random\\bootcamp\\storM\\StorM.API\\StorM.API\\StorM.API.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Joseph.Callao\\OneDrive - AMCS Group\\Desktop\\random\\bootcamp\\storM\\StorM.API\\StorM.API\\StorM.API.csproj": {
+    "C:\\Users\\Joseph.Callao\\OneDrive - AMCS Group\\Desktop\\random\\bootcamp\\storM\\StorM.API\\StorM.API\\StorM.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Joseph.Callao\\OneDrive - AMCS Group\\Desktop\\random\\bootcamp\\storM\\StorM.API\\StorM.API\\StorM.API.csproj",
+        "projectUniqueName": "C:\\Users\\Joseph.Callao\\OneDrive - AMCS Group\\Desktop\\random\\bootcamp\\storM\\StorM.API\\StorM.API\\StorM.API.csproj",
         "projectName": "StorM.API",
-        "projectPath": "c:\\Users\\Joseph.Callao\\OneDrive - AMCS Group\\Desktop\\random\\bootcamp\\storM\\StorM.API\\StorM.API\\StorM.API.csproj",
+        "projectPath": "C:\\Users\\Joseph.Callao\\OneDrive - AMCS Group\\Desktop\\random\\bootcamp\\storM\\StorM.API\\StorM.API\\StorM.API.csproj",
         "packagesPath": "C:\\Users\\Joseph.Callao\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Joseph.Callao\\OneDrive - AMCS Group\\Desktop\\random\\bootcamp\\storM\\StorM.API\\StorM.API\\obj\\",
+        "outputPath": "C:\\Users\\Joseph.Callao\\OneDrive - AMCS Group\\Desktop\\random\\bootcamp\\storM\\StorM.API\\StorM.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Joseph.Callao\\AppData\\Roaming\\NuGet\\NuGet.Config",

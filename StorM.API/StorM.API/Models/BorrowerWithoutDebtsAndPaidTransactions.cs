@@ -1,4 +1,6 @@
-﻿namespace StorM.API.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace StorM.API.Models
 {
     public class BorrowerWithoutDebtsAndPaidTransactions
     {

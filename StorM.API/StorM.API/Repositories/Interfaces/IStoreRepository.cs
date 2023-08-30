@@ -1,9 +1,9 @@
-﻿namespace StorM.API.Repositories.Interfaces
+﻿using StorM.API.Models;
+
+namespace StorM.API.Repositories.Interfaces
 {
-    public interface IStoreRepository<T>
+    public interface IStoreRepository : IGenericRepository<Store>
     {
-        public Task<IEnumerable<T>> GetAll();
-        public Task<T?> GetById(int id);
-        public Task Add(T entity);
+        public Task<IQueryable<Borrower>> GetBorrowersByStoreId(int id);
     }
 }

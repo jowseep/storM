@@ -1,4 +1,6 @@
-﻿namespace StorM.API.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace StorM.API.Models
 {
     public class Borrower
     {
@@ -7,7 +9,6 @@
         public string PhoneNumber { get; set; } = string.Empty;
         public ICollection<Debt> Debts { get; set; } = new List<Debt>();
         public ICollection<PaidTransaction> PaidTransactions { get; set; } = new List<PaidTransaction>();
-
     }
 }
  

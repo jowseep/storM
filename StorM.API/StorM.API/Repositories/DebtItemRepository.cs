@@ -1,28 +1,32 @@
-﻿using StorM.API.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using StorM.API.Models;
+using StorM.API.Repositories.Data;
 using StorM.API.Repositories.Interfaces;
 
 namespace StorM.API.Repositories
 {
-    public class DebtItemRepository : IStoreRepository<DebtItem>
+    public class DebtItemRepository : GenericRepository<DebtItem>, IDebtItemRepository
     {
-        public Task Add(DebtItem entity)
+        private readonly StoreInfoContext _storeInfoContext;
+        public DebtItemRepository(StoreInfoContext storeInfoContext) : base(storeInfoContext)
         {
-            throw new NotImplementedException();
+            _storeInfoContext = storeInfoContext;
         }
 
-        public Task<IEnumerable<DebtItem>> GetAll()
+        public Task<IQueryable<ProductWithoutDebtItemsAndStore>> GetDebtItemsWithDebtId(int id)
         {
-            throw new NotImplementedException();
-        }
+            var debtItems = (from d in _storeInfoContext.Debts
+                             join di in _storeInfoContext.DebtItems on d.Id equals di.Id
+                             join p in _storeInfoContext.Products on di.Id equals p.Id
+                             where di.DebtId == id
+                             select new ProductWithoutDebtItemsAndStore
+                             {
+                                 Id = d.Id,
+                                 Name = p.Name,
+                                 Price = di.PriceAtBorrowed
+                             });
 
-        public Task<DebtItem?> GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Update(int id, DebtItem entity)
-        {
-            throw new NotImplementedException();
+            return Task.FromResult(debtItems);
         }
     }
 }

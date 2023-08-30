@@ -1,28 +1,13 @@
 ﻿using StorM.API.Models;
+using StorM.API.Repositories.Data;
 using StorM.API.Repositories.Interfaces;
 
 namespace StorM.API.Repositories
 {
-    public class BorrowerRepository : IStoreRepository<Borrower>
+    public class BorrowerRepository : GenericRepository<Borrower>, IBorrowerRepository
     {
-        public Task Add(Borrower entity)
+        public BorrowerRepository(StoreInfoContext storeInfoContext) : base(storeInfoContext)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<Borrower>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Borrower?> GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Update(int id, Borrower entity)
-        {
-            throw new NotImplementedException();
         }
     }
 }

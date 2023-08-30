@@ -1,13 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StorM.API.Repositories.Data;
+using System.Reflection;
 
 namespace StorM.API.Repositories.Interfaces
 {
-    public abstract class BaseStoreRepository<T> : IStoreRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly StoreInfoContext _context;
 
-        public BaseStoreRepository(StoreInfoContext storeInfoContext)
+        public GenericRepository(StoreInfoContext storeInfoContext)
         {
             _context = storeInfoContext;
         }
@@ -32,6 +33,26 @@ namespace StorM.API.Repositories.Interfaces
             }
 
             return result;
+        }
+
+        public async Task Update(int id, T entity)
+        {
+            var result = await _context.Set<T>().FindAsync(id);
+
+            if (result == null)
+            {
+                return;
+            }
+
+            PropertyInfo[] properties = typeof(T).GetProperties();
+
+            foreach(var property in properties) 
+            {
+                PropertyInfo? updatedProperty = typeof(T).GetProperty(property.Name);
+                property.SetValue(result, updatedProperty?.GetValue(entity));
+            }
+
+            await _context.SaveChangesAsync();
         }
     }
 }

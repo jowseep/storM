@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StorM.API.Models;
-using StorM.API.Repositories;
-using StorM.API.Services;
+using StorM.API.Services.Interfaces;
 
 namespace StorM.API.Controllers
 {
@@ -9,15 +8,15 @@ namespace StorM.API.Controllers
     [ApiController]
     public class StoreController : ControllerBase
     {
-        private readonly StoreService _storeService;
+        private readonly IStoreService _storeService;
 
-        public StoreController(StoreService storeService)
+        public StoreController(IStoreService storeService)
         {
             _storeService = storeService;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllStore()
+        public async Task<IActionResult> GetAllStores()
         {
             var stores = await _storeService.GetAll();
 
@@ -38,11 +37,28 @@ namespace StorM.API.Controllers
             return Ok(store);
         }
 
+        [HttpGet]
+        [Route("{id}/borrowers")]
+        public async Task<IActionResult> GetBorrowersByStoreId([FromRoute] int id)
+        {
+            var borrowers = await _storeService.GetBorrowersByStoreId(id);
+
+            return Ok(borrowers);
+        }
 
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] Store store)
         {
             await _storeService.Add(store);
+
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] Store store)
+        {
+            await _storeService.Update(id, store);
 
             return Ok();
         }

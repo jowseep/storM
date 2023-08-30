@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using StorM.API.Models;
 using StorM.API.Repositories;
 using StorM.API.Repositories.Data;
+using StorM.API.Repositories.Interfaces;
 using StorM.API.Services;
 using StorM.API.Services.Interfaces;
 
@@ -25,25 +26,27 @@ builder.Services.AddSingleton<FileExtensionContentTypeProvider>();
 builder.Services.AddDbContext<StoreInfoContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("StormConnectionString")));
 
-// Enable services
-builder.Services.AddTransient<StoreService>();
-builder.Services.AddDbContext<StoreInfoContext>();
-
 // Enable repositories
-builder.Services.AddTransient<StoreRepository>();
-builder.Services.AddTransient<ProductRepository>();
-builder.Services.AddTransient<PaidTransactionRepository>();
-builder.Services.AddTransient<PaidDebtRepository>();
-builder.Services.AddTransient<DebtRepository>();
-builder.Services.AddTransient<DebtItemRepository>();
-builder.Services.AddTransient<DebtRepository>();
-builder.Services.AddTransient<BorrowerRepository>();
 
+builder.Services.AddScoped<IStoreRepository ,StoreRepository>();
+builder.Services.AddScoped<IProductRepository ,ProductRepository>();
+builder.Services.AddScoped<IPaidTransactionRepository, PaidTransactionRepository>();
+builder.Services.AddScoped<IPaidDebtRepository ,PaidDebtRepository>();
+builder.Services.AddScoped<IDebtRepository,DebtRepository>();
+builder.Services.AddScoped<IDebtItemRepository,DebtItemRepository>();
+builder.Services.AddScoped<IDebtRepository, DebtRepository>();
+builder.Services.AddScoped<IBorrowerRepository,BorrowerRepository>();
+
+// Enable services
+builder.Services.AddTransient<IStoreService, StoreService>();
+builder.Services.AddTransient<IProductService, ProductService>();
+builder.Services.AddTransient<IPaidTransactionService, PaidTransactionService>();
+builder.Services.AddTransient<IPaidDebtService, PaidDebtService>();
+builder.Services.AddTransient<IDebtService, DebtService>();
+builder.Services.AddTransient<IDebtItemService, DebtItemService>();
+builder.Services.AddTransient<IBorrowerService, BorrowerService>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-//builder.Services.AddControllers().AddJsonOptions(x =>
-//                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 var app = builder.Build(); 
 

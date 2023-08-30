@@ -6,7 +6,7 @@ namespace StorM.API.Models.Profiles
     {
         public StoreProfile()
         {
-            CreateMap<Store, StoreClientDetails>();
+            CreateMap<Store, StoreClientDetails>().ReverseMap();
         }
     }
 }

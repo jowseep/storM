@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4gatWbHKTAkMy/0F7ArcnqycpTVj2TQ9+8QYfAFFTmY63INnKbzcv8uY11HFdCeAOeKon94P7ESGWS+ev0p+aQ==",
+  "dgSpecHash": "GOENOLOUtyRG5XnPUAFTDQnDMq2zK6tjshZ/YBik6+poRcWHYHrw/DGtJX/mmtwEKsGTcxBDAkG3HAhstL8TqQ==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Joseph.Callao\\OneDrive - AMCS Group\\Desktop\\random\\bootcamp\\storM\\StorM.API\\StorM.API\\StorM.API.csproj",
+  "projectFilePath": "C:\\Users\\Joseph.Callao\\OneDrive - AMCS Group\\Desktop\\random\\bootcamp\\storM\\StorM.API\\StorM.API\\StorM.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Joseph.Callao\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Joseph.Callao\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

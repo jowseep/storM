@@ -1,8 +1,9 @@
-﻿namespace StorM.API.Services.Interfaces
+﻿using StorM.API.Models;
+
+namespace StorM.API.Services.Interfaces
 {
-    public interface IStoreService<T>
+    public interface IStoreService : IGenericService<StoreClientDetails, Store>
     {
-        public Task<IEnumerable<T>> GetAll();
-        public Task<T?> GetById(int id);
+        public Task<IEnumerable<BorrowerWithoutDebtsAndPaidTransactions>> GetBorrowersByStoreId(int id);
     }
 }
